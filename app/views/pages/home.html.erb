@@ -1,2 +1,11 @@
 <h1>Richer</h1>
+<% if user_signed_in? %>
+  <h2>Welcome back, <%= current_user.given_name %>!</h2>
+<% end %>
 <p>Finance tracker.</p>
+<% if user_signed_in? %>
+  <%= button_to 'Log out', destroy_user_session_path, method: :delete %>
+<% else %>
+  <%= link_to 'Log in', new_user_session_path %>
+  <%= link_to 'Register', new_user_registration_path %>
+<% end %>
