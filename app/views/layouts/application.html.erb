@@ -9,8 +9,21 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
   <body>
-    <%= notice %>
-    <%= alert %>
-    <%= yield %>
+    <div class='fixed-top container mx-auto row mt-5 pt-4'>
+      <% if notice %>
+        <div class='col-lg-8 col-xl-6 mx-auto alert alert-success alert-dismissible fade show'>
+          <%= notice %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <% end %>
+      <% if alert %>
+        <div class='col-lg-8 col-xl-6 mx-auto alert alert-danger alert-dismissible fade show'>
+          <%= alert %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <% end %>
+    </div>
+    <%= render 'shared/navbar' %>
+    <main class='container'><%= yield %></main>
   </body>
 </html>
