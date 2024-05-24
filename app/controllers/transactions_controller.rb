@@ -4,7 +4,7 @@ class TransactionsController < ApplicationController
 
   # GET /transactions
   def index
-    @transactions = Transaction.all
+    @transactions = current_user.transactions
   end
 
   # GET /transactions/1
@@ -22,7 +22,7 @@ class TransactionsController < ApplicationController
 
   # POST /transactions
   def create
-    @transaction = Transaction.new(transaction_params)
+    @transaction = current_user.transactions.build(transaction_params)
 
     if @transaction.save
       redirect_to transactions_url, notice: 'Log successful.'
@@ -44,7 +44,8 @@ class TransactionsController < ApplicationController
 
   # DELETE /transactions/1
   def destroy
-    @transaction.destroy!
+    @transaction.destroy
+
     redirect_to transactions_url,
                 notice: 'Transaction was successfully destroyed.',
                 status: :see_other
