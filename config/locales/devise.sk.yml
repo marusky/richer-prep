@@ -1,0 +1,23 @@
+sk:
+  devise:
+    failure:
+      already_authenticated: "Už si prihlásený."
+      invalid: "Nesprávny %{authentication_keys} alebo heslo."
+      not_found_in_database: "Nesprávny %{authentication_keys} alebo heslo."
+      timeout: "Bol si odhlásený z dôvodu neaktivity. Prosím, prihlás sa znovu."
+      unauthenticated: "Pred pokračovaním sa potrebuješ prihlásiť"
+    passwords:
+      updated: "Tvoje heslo bolo úspešne zmenené. Si prihlásený."
+    registrations:
+      destroyed: "Tvoj účet bol úspešne zrušený. Snáď nabudúce."
+      signed_up: "Vitaj! Registrácia bola úspešná."
+      updated: "Zmeny v účte boli uložené."
+      updated_but_not_signed_in: "Zmeny boli uložené. Kvôli zmene hesla sa, prosím, prihlás opäť."
+    sessions:
+      signed_in: "Úspešne prihlásený."
+      signed_out: "Úspešne odhlásený."
+      already_signed_out: "Úspešne odhlásený."
+  errors:
+    messages:
+      not_found: "nebol nájdený"
+

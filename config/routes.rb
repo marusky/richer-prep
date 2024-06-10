@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  resources :transactions
-  devise_for :users
+  scope '(:locale)' do
+    resources :transactions
+    devise_for :users
+  end
+
   get 'secret', to: 'pages#secret'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -9,5 +12,6 @@ Rails.application.routes.draw do
   get 'up' => 'rails/health#show', :as => :rails_health_check
 
   # Defines the root path route ("/")
+  get ':locale', to: 'pages#home', as: :root_with_locale
   root 'pages#home'
 end
