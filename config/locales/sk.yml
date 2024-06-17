@@ -1,10 +1,15 @@
 sk:
   activerecord:
     attributes:
+      category:
+        title: 'Názov'
+        color: 'Farba'
+        icon: 'Ikona'
       transaction:
         title: 'Názov'
         kind: 'Druh'
         amount: 'Cena'
+        category: 'Kategória'
       transaction/kind:
         expense: 'Výdaj'
         income: 'Príjem'
@@ -43,6 +48,15 @@ sk:
       not_saved:
         one: "Je potrebné opraviť chyby:"
         other: "Je potrebné opraviť chyby (%{count}):"
+  categories:
+    index:
+      header: 'Kategórie'
+      new_category: 'Nová kategória'
+    new:
+      header: 'Nová kategória'
+      back_link: 'Kategórie'
+    edit:
+      header: 'Úprava kategórie'
   transactions:
     index:
       header: 'Transakcie'
@@ -78,6 +92,7 @@ sk:
     navbar:
       home: 'Domov'
       transactions: 'Transakcie'
+      categories: 'Kategórie'
       login: 'Prihlásenie'
       register: 'Registrácia'
       logout: 'Odhlásiť sa'

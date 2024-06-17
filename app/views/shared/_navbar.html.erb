@@ -13,6 +13,9 @@
           <li class="nav-item">
             <%= link_to t('.transactions'), transactions_path, class: "nav-link #{active_for(controller: 'transactions')}"%>
           </li>
+          <li class="nav-item">
+            <%= link_to t('.categories'), categories_path, class: "nav-link #{active_for(controller: 'categories')}"%>
+          </li>
         <% end %>
       </ul>
       <ul class="navbar-nav mb-2 mb-lg-0">

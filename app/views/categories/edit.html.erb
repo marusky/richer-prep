@@ -1,0 +1,7 @@
+<section class='pt-5 mt-4'>
+  <%= render 'shared/link_back', specified_path: @category, text: @category.title %>
+
+  <h1><%= t '.header' %></h1>
+
+  <%= render "form", category: @category %>
+</section>
