@@ -1,10 +1,19 @@
-<p style="color: green"><%= notice %></p>
+<div class='mt-5 pt-4'>
+  <%= render 'shared/link_back', specified_path: root_path, text: t('.back_link') %>
+  <h2><%= @category&.title || t('presenters.homepage.other') %></h2>
+  <% if @category %>
+    <% @category.transactions.each do |transaction| %>
+      <%= render transaction %>
+    <% end %>
 
-<%= render @category %>
+    <div class='d-flex gap-3 mt-3'>
+      <%= link_to t('.edit'), edit_category_path(@category), class: 'btn btn-outline-primary' %>
 
-<div>
-  <%= link_to "Edit this category", edit_category_path(@category) %> |
-  <%= link_to "Back to categories", categories_path %>
-
-  <%= button_to "Destroy this category", @category, method: :delete %>
+      <%= button_to t('.destroy'), @category, method: :delete, class: 'btn btn-outline-danger' %>
+    </div>
+  <% elsif @transactions %>
+    <% @transactions.each do |transaction| %>
+      <%= render transaction %>
+    <% end %>
+  <% end %>
 </div>

@@ -1,6 +1,26 @@
-<section class='pt-5 mt-4'>
+<section class='pt-5 pb-5 mt-4'>
   <% if user_signed_in? %>
-    <h2><%= t('.welcome', name: current_user.given_name) %></h2>
+    <h2><%= t('.welcome', name: current_user.given_name ) %></h2>
+
+    <%= pie_chart @presenter.chart_data, donut: true, colors: @presenter.chart_colors %>
+
+    <section class='mt-3 pb-5'>
+      <% @presenter.transactions.each do |transaction| %>
+        <%= link_to @presenter.category_link(transaction.category_id), class: 'text-decoration-none text-black' do %>
+          <div class='d-flex justify-content-between p-2 bg-light mb-2 rounded-3'>
+            <%= @presenter.category_title(transaction.category_title) %>
+            <span>
+              <%= number_to_currency transaction.category_sum %>
+            </span>
+          </div>
+        <% end %>
+      <% end %>
+    </section>
+
+    <div class='d-grid fixed-bottom p-4 d-sm-none'>
+      <%= link_to t('.log'), new_transaction_path, class: 'btn btn-primary py-3 rounded-pill shadow fs-6 fw-bold' %>
+    </div>
+  <% else %>
+    <p class='mt-3'><%= t('.description')%></p>
   <% end %>
-  <p class='mt-3'><%= t('.description')%></p>
 </section>

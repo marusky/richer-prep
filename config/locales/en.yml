@@ -26,6 +26,9 @@ en:
         delimiter: ' '
         format: '%n %u'
         strip_insignificant_zeros: true
+  categories:
+    show:
+      back_link: 'Home'
   transactions:
     index:
       header: 'Transactions'
@@ -64,4 +67,6 @@ en:
       login: 'Log In'
       register: 'Register'
       logout: 'Log Out'
-  
+  presenters:
+    homepage:
+      other: 'Other'

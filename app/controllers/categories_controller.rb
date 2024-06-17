@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :set_category, only: %i[show edit update destroy]
+  before_action :set_category, only: %i[edit update destroy]
 
   # GET /categories
   def index
@@ -8,6 +8,11 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1
   def show
+    if params[:id].present?
+      @category = Category.find(params[:id])
+    else
+      @transactions = current_user.transactions.where(category_id: nil)
+    end
   end
 
   # GET /categories/new

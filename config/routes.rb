@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   scope '(:locale)' do
     resources :transactions
-    resources :categories
+    resources :categories do
+      collection { get 'other', to: 'categories#show' }
+    end
     devise_for :users
   end
 
